@@ -139,19 +139,19 @@ update_listener()
     local _ovdidentpass="$(cat ${dir}/.keys/bakeystore)"
     
     local _wlst="connect('$WLS_USER','$_wlspass','t3://$ADMIN_HOST:$ADMIN_PORT')
-configureSSL('$INSTANCE_NAME','$OVD_INSTANCE_NAME','ovd','$listener','$ovdprop')
+configureSSL('$INSTANCE_NAME','$OVD_INSTANCE_NAME','ovd','$_listener','$ovdprop')
 custom()
 cd('oracle.as.management.mbeans.register')
-cd('oracle.as.management.mbeans.register:type=component,name=$OVD_INSTANCE_NAME,instance=$OVD_INSTANCE_NAME')
+cd('oracle.as.management.mbeans.register:type=component,name=$OVD_INSTANCE_NAME,instance=$INSTANCE_NAME')
 invoke('load',jarray.array([],java.lang.Object),jarray.array([],java.lang.String))
 cd('../..')
 cd('oracle.as.ovd')
-cd('oracle.as.ovd:type=component.listenersconfig.sslconfig,name=$_listener,instance=$OVD_INSTANCE_NAME,component=ovd1')
+cd('oracle.as.ovd:type=component.listenersconfig.sslconfig,name=$_listener,instance=$INSTANCE_NAME,component=ovd1')
 set('KeyStorePassword',java.lang.String('$_ovdidentpass').toCharArray())
 set('TrustStorePassword',java.lang.String('$_ovdtrustpass').toCharArray())
 cd('../..')
 cd('oracle.as.management.mbeans.register')
-cd('oracle.as.management.mbeans.register:type=component,name=$OVD_INSTANCE_NAME,instance=$OVD_INSTANCE_NAME')
+cd('oracle.as.management.mbeans.register:type=component,name=$OVD_INSTANCE_NAME,instance=$INSTANCE_NAME')
 invoke('save',jarray.array([],java.lang.Object),jarray.array([],java.lang.String))
 exit()
 "
@@ -197,8 +197,8 @@ echo "TrustStore=$OVD_TRUST_NEW"          >>$ovdprop
 update_listener "LDAP SSL Endpoint"
 update_listener "Admin Gateway"
 
-opmnctl stopproc ias-component=$OVD_INSTANCE_NAME
-opmnctl startroc ias-component=$OVD_INSTANCE_NAME
+opmnctl stopproc  ias-component=$OVD_INSTANCE_NAME
+opmnctl startproc ias-component=$OVD_INSTANCE_NAME
 
 update_component_reg
 

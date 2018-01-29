@@ -1,3 +1,4 @@
 init-pass-files.sh
 ovd.env
 ovd-configssl.env
+.keys
