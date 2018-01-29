@@ -30,7 +30,7 @@ Passwords are read from several files located in `.key` subdir:
 
 ### Project Files
 
-    ovd.env		general environment (if not already existing/set)
+    ovd.env             general environment (if not already existing/set)
     ovd-configssl.env   additional instance config
     ovd-configssl.sh    actual configuration script
     init-pass-files.sh  script for creating password files
@@ -39,8 +39,8 @@ Passwords are read from several files located in `.key` subdir:
 
 Create config files from templates:
 
-    $ cp ovd.env.sample ovd.env
-    $ cp ovd-configssl.env.sample ovd-configssl.env
+    $ cp ovd.env.sample            ovd.env
+    $ cp ovd-configssl.env.sample  ovd-configssl.env
     $ cp init-pass-files.sh.sample init-pass-files.sh
 
 Edit the config files and the create password script:
