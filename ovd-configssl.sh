@@ -23,7 +23,7 @@
 
 dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 [ -z "$INSTANCE_NAME"      ] && source $dir/ovd.env
-[ -z "$REF_TRUST_KEYSTORE" ] && source $dir/set-keystores.env
+[ -z "$REF_TRUST_KEYSTORE" ] && source $dir/ovd-configssl.env
 
 set -o errexit
 set -o nounset
