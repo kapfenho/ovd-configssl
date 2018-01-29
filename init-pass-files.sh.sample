@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+#  Use this file as template for creating the temporary password files
+#
+#  - .keys/weblogic     weblogic user
+#  - .keys/orcladmin    cn=orcladmin
+#  - .keys/bakeystore   reference keystore passphrase
+#  - .keys/bakey        reference identity keystore private key passphrase
+#
+dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+
+umask 0077
+
+[ -d "$dir/.keys" ] || mkdir -p "$dir/.keys"
+
+echo -n ''  >$dir/.keys/weblogic
+echo -n ''  >$dir/.keys/orcladmin
+echo -n ''  >$dir/.keys/bakeystore
+echo -n ''  >$dir/.keys/bakey
