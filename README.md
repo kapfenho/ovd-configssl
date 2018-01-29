@@ -5,6 +5,9 @@ This scripts updates the SSL settings of the local Oracle OVD instance.
 
 Instance properties are sourced from addition env file. 
 
+
+### Steps
+
 - new keystores are created with the content extracted from reference 
   keystores (trust and identity)
 - the new identity certificate is added to the EMAGENT wallet
@@ -13,6 +16,9 @@ Instance properties are sourced from addition env file.
 - restart ovd component
 - reregister ovd instance in weblogic domain, needed when changing
   the admin gateway properties
+
+
+### Passphrase Handling
 
 Passwords are read from several files located in `.key` subdir:
 
