@@ -147,6 +147,7 @@ invoke('load',jarray.array([],java.lang.Object),jarray.array([],java.lang.String
 cd('../..')
 cd('oracle.as.ovd')
 cd('oracle.as.ovd:type=component.listenersconfig.sslconfig,name=$_listener,instance=$INSTANCE_NAME,component=ovd1')
+set('IncludeAnonCiphers',true)
 set('KeyStorePassword',java.lang.String('$_ovdidentpass').toCharArray())
 set('TrustStorePassword',java.lang.String('$_ovdtrustpass').toCharArray())
 cd('../..')
