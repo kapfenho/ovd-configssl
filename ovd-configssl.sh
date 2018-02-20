@@ -199,6 +199,8 @@ update_listener "LDAP SSL Endpoint"
 update_listener "Admin Gateway"
 
 opmnctl stopproc  ias-component=$OVD_INSTANCE_NAME
+echo "Waiting 10 secs...."
+sleep 10
 opmnctl startproc ias-component=$OVD_INSTANCE_NAME
 
 update_component_reg
